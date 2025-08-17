@@ -1,5 +1,8 @@
 {pkgs, ...}: let
-  secrets = import ./secrets.nix {};
+  secrets = import (builtins.path {
+    path = ./secrets.nix;
+    name = "secrets";
+  }) {};
 in {
   home.stateVersion = "25.05";
   home.packages = with pkgs; [
