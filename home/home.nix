@@ -1,9 +1,11 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  secrets = import ./secrets.nix {};
+in {
   home.stateVersion = "25.05";
   home.packages = with pkgs; [
     curl
     coreutils
-    (maple-mono."NF-CN")
+    maple-mono."NF-CN"
     ripgrep
     lazygit
     bottom
@@ -16,6 +18,8 @@
     all_proxy = "socks5://127.0.0.1:7897";
 
     EDITOR = "nvim";
+
+    GITHUB_TOKEN = secrets.github-token;
   };
 
   imports = [

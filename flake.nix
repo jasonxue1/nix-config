@@ -14,7 +14,7 @@
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
     nix-darwin,
     catppuccin,
@@ -47,9 +47,10 @@
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "x86_64-darwin";
 
-      nix.optimise.automatic = true;
-
-      nix.enable = true;
+      nix = {
+        optimise.automatic = true;
+        enable = true;
+      };
 
       users.users.jason = {
         home = "/Users/jason";
