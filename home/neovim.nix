@@ -1,0 +1,8 @@
+{config, ...}: let
+  configPath = "/etc/nix-darwin/home/nvim";
+in {
+  programs.neovim.enable = true;
+  catppuccin.nvim.enable = false;
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink configPath;
+}

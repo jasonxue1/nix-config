@@ -1,0 +1,83 @@
+{...}: {
+  xdg.configFile."git/config".onChange = ''
+    rm -f ~/.gitconfig
+  '';
+
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      AddKeysToAgent yes
+      UseKeychain yes
+      ServerAliveInterval 30
+      ServerAliveCountMax 3
+      HashKnownHosts yes
+    '';
+
+    matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/jasonxue_ed25519_github";
+        extraOptions = {
+          StrictHostKeyChecking = "accept-new";
+          ControlMaster = "auto";
+          ControlPersist = "10m";
+          ControlPath = "~/.ssh/cm-%r@%h:%p";
+        };
+      };
+    };
+  };
+
+  programs.gh = {
+    enable = true;
+    settings = {
+      git_protocol = "ssh";
+      prompt = "enabled";
+    };
+    hosts = {
+      "github.com" = {
+        users = {"jasonxue1" = null;};
+        user = "jasonxue1";
+      };
+    };
+  };
+
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+
+    userName = "jasonxue";
+    userEmail = "jason@xuechunxi.com";
+
+    extraConfig = {
+      init.defaultBranch = "main";
+      push.autoSetupRemote = true;
+      pull.rebase = true;
+      log.date = "iso";
+
+      url = {
+        "git@github.com:" = {
+          insteadOf = [
+            "https://github.com/"
+            "http://github.com"
+          ];
+        };
+      };
+
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/jasonxue_ed25519_signing";
+      commit.gpgsign = true;
+    };
+    delta = {
+      enable = true;
+      options = {
+        diff-so-fancy = true;
+        line-numbers = true;
+        true-colors = "always";
+      };
+    };
+  };
+
+  programs.lazygit.enable = true;
+}
