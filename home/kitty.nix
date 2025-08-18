@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # Kitty terminal configuration (font, UI, and shell).
   programs.kitty = {
     enable = true;
     settings = {

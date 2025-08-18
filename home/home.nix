@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # Home Manager entrypoint: packages, session vars, and module imports.
   home.stateVersion = "25.05";
   home.packages = with pkgs; [
     git

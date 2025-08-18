@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # Zsh shell configuration, aliases, and plugins.
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -37,11 +38,6 @@
         src = pkgs.zsh-vi-mode;
         file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
-      # {
-      #   name = "autocomplete";
-      #   src = pkgs.zsh-autocomplete;
-      #   file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
-      # }
       {
         name = "autosuggestions";
         src = pkgs.zsh-autosuggestions;
