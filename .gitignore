@@ -3,3 +3,5 @@ flake.nix.bk
 
 .DS_Store
 lazy-lock.json
+
+.null-ls*.*

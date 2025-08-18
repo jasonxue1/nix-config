@@ -8,5 +8,5 @@ return {
       inlay_hints = true, -- enable/disable inlay hints on start
     },
     -- customize lsp formatting options
-  }
+  },
 }

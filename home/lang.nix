@@ -4,6 +4,7 @@
     lua-language-server
     stylua
     selene
+    luarocks
     # nix
     nixd
     deadnix

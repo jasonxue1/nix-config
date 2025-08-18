@@ -2,7 +2,10 @@
 return {
   {
     "Astronvim/astrolsp",
-    opts = function(_, opts) opts.servers = require("astrocore").list_insert_unique(opts.servers, { "lua_ls" }) end,
+    opts = function(_, opts)
+      opts.servers =
+        require("astrocore").list_insert_unique(opts.servers, { "lua_ls" })
+    end,
   },
   {
     "nvimtools/none-ls.nvim",
