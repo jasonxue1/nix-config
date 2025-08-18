@@ -6,5 +6,12 @@
       lg = "lazygit";
       nixfmt = "nix fmt --no-write-lock-file .";
     };
+    initContent = ''
+      if [ -f $HOME/.env ]; then
+        set -a
+        source $HOME/.env
+        set +a
+      fi
+    '';
   };
 }

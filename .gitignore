@@ -3,5 +3,3 @@ flake.nix.bk
 
 .DS_Store
 lazy-lock.json
-
-secrets.nix

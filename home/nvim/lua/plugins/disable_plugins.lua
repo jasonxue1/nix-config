@@ -1,6 +1,5 @@
 ---@type LazySpec
 return {
-  {},
   {
     "mason-org/mason.nvim",
     enabled = false,
@@ -19,6 +18,11 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
+    enabled = false,
+  },
+
+  {
+    "folke/snacks.nvim",
     enabled = false,
   },
 }

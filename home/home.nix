@@ -1,11 +1,7 @@
-{pkgs, ...}: let
-  secrets = import (builtins.path {
-    path = ./secrets.nix;
-    name = "secrets";
-  }) {};
-in {
+{pkgs, ...}: {
   home.stateVersion = "25.05";
   home.packages = with pkgs; [
+    git
     curl
     coreutils
     maple-mono."NF-CN"
@@ -14,6 +10,9 @@ in {
     bottom
     nodejs
     gdu
+
+    age
+    sops
   ];
   home.sessionVariables = {
     https_proxy = "http://127.0.0.1:7897";
@@ -21,8 +20,6 @@ in {
     all_proxy = "socks5://127.0.0.1:7897";
 
     EDITOR = "nvim";
-
-    GITHUB_TOKEN = secrets.github-token;
   };
 
   imports = [
@@ -32,5 +29,6 @@ in {
     ./catppuccin.nix
     ./lang.nix
     ./git.nix
+    ./secrets.nix
   ];
 }

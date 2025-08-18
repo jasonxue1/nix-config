@@ -16,6 +16,9 @@ require("lazy").setup({
   {import="lang"},
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
+  git = {
+timeout=300,
+  },
   install = { colorscheme = { "astrotheme", "habamax" } },
   ui = { backdrop = 100 },
   performance = {

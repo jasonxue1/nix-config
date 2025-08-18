@@ -12,12 +12,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nix-darwin,
     catppuccin,
+    sops-nix,
     nixpkgs,
     home-manager,
     ...
@@ -30,9 +35,6 @@
       environment.systemPackages = [
         pkgs.vim
       ];
-
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
 
       # Enable alternative shell support in nix-darwin.
       # programs.fish.enable = true;
@@ -49,12 +51,32 @@
 
       nix = {
         optimise.automatic = true;
-        enable = true;
+        settings = {
+          substituters = [
+            "https://mirrors.ustc.edu.cn/nix-channels/store/"
+            "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store/"
+            "https://cache.nixos.org/"
+          ];
+          trusted-substituters = [
+            "https://mirrors.ustc.edu.cn/nix-channels/store/"
+            "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store/"
+          ];
+          fallback = true;
+          connect-timeout = 10;
+          http-connections = 4;
+          max-substitution-jobs = 4;
+          experimental-features = "nix-command flakes";
+        };
       };
 
       users.users.jason = {
         home = "/Users/jason";
       };
+
+      security.sudo.extraConfig = ''
+        Defaults env_keep += "GITHUB_TOKEN"
+        Defaults env_keep += "http_proxy https_proxy all_proxy"
+      '';
     };
   in {
     # Build darwin flake using:
@@ -70,6 +92,7 @@
             imports = [
               ./home/home.nix
               catppuccin.homeModules.catppuccin
+              sops-nix.homeManagerModules.sops
             ];
           };
         }

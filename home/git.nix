@@ -23,7 +23,7 @@
           StrictHostKeyChecking = "accept-new";
           ControlMaster = "auto";
           ControlPersist = "10m";
-          ControlPath = "~/.ssh/cm-%r@%h:%p";
+          ControlPath = "/tmp/cm-%r@%h:%p";
         };
       };
     };
@@ -60,7 +60,7 @@
         "git@github.com:" = {
           insteadOf = [
             "https://github.com/"
-            "http://github.com"
+            "http://github.com/"
           ];
         };
       };
