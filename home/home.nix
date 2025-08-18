@@ -19,6 +19,7 @@
     zoxide
     skim
     bat
+    codex
   ];
   home.sessionVariables = {
     https_proxy = "http://127.0.0.1:7897";
