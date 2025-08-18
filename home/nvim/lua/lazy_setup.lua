@@ -17,10 +17,11 @@ require("lazy").setup({
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   git = {
-    timeout = 180,
+    timeout = 600,
   },
   install = { colorscheme = { "catppuccin", "astrotheme", "habamax" } },
   ui = { backdrop = 100 },
+  change_detection = { enabled = false },
   performance = {
     rtp = {
       -- disable some rtp plugins, add more to your liking
