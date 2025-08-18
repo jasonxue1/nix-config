@@ -38,5 +38,6 @@
     ./git.nix
     ./secrets.nix
     ./tmux.nix
+    ./firefox.nix
   ];
 }
