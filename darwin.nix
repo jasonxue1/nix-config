@@ -46,4 +46,6 @@
     Defaults env_keep += "GITHUB_TOKEN"
     Defaults env_keep += "http_proxy https_proxy all_proxy"
   '';
+
+  # system.primaryUser = "jason";
 }

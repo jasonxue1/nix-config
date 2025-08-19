@@ -22,5 +22,6 @@
     ./tmux
     ./firefox.nix
     ./fonts.nix
+    ./key_mappings
   ];
 }
