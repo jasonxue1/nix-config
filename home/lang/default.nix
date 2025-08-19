@@ -4,5 +4,6 @@
     ./lua.nix
     ./javascript.nix
     ./json.nix
+    ./js_ts.nix
   ];
 }
