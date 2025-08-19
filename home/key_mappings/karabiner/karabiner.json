@@ -6,7 +6,6 @@
     "show_profile_name_in_menu_bar": false,
     "unsafe_ui": false
   },
-
   "profiles": [
     {
       "complex_modifications": {
@@ -26,10 +25,17 @@
                 "from": {
                   "key_code": "2",
                   "modifiers": {
-                    "mandatory": ["right_option"]
+                    "mandatory": [
+                      "right_option"
+                    ]
                   }
                 },
-                "to": [{ "shell_command": "open -a 'kitty'", "repeat": false }]
+                "to": [
+                  {
+                    "shell_command": "open -a 'kitty'",
+                    "repeat": false
+                  }
+                ]
               }
             ]
           },
@@ -41,11 +47,16 @@
                 "from": {
                   "key_code": "3",
                   "modifiers": {
-                    "mandatory": ["right_option"]
+                    "mandatory": [
+                      "right_option"
+                    ]
                   }
                 },
                 "to": [
-                  { "shell_command": "open -a 'firefox'", "repeat": false }
+                  {
+                    "shell_command": "open -a 'firefox'",
+                    "repeat": false
+                  }
                 ]
               }
             ]
