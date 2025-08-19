@@ -1,11 +1,16 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  cpuinfo = pkgs.writeShellScriptBin "cpuinfo" (builtins.readFile ./cpuinfo.sh);
+in {
   # Tmux defaults and keybindings tuned for vi workflow.
+  home.packages = [
+    cpuinfo
+    pkgs.osx-cpu-temp
+  ];
   programs.tmux = {
     enable = true;
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       yank
-      cpu
       prefix-highlight
     ];
 
@@ -88,7 +93,7 @@
       bind-key \{ swap-window -t -1 \; previous-window
       bind-key \} swap-window -t +1 \; next-window
 
-      set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | %a %h-%d %H:%M '
+      set -g status-right '#(${cpuinfo}/bin/cpuinfo) '
     '';
   };
 }
