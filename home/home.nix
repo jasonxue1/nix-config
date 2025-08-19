@@ -36,7 +36,8 @@
     ./kitty.nix
     ./zsh.nix
     ./catppuccin.nix
-    ./lang.nix
+    ./lang/lua.nix
+    ./lang/nix.nix
     ./git.nix
     ./secrets.nix
     ./tmux.nix
