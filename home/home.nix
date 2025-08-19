@@ -32,14 +32,14 @@
   };
 
   imports = [
-    ./neovim/neovim.nix
+    ./neovim
     ./kitty.nix
-    ./zsh/zsh.nix
+    ./zsh
     ./catppuccin.nix
-    ./lang/init.nix
+    ./lang
     ./git.nix
     ./secrets.nix
-    ./tmux.nix
+    ./tmux
     ./firefox.nix
   ];
 }
