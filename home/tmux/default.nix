@@ -26,8 +26,7 @@ in {
       set -g allow-passthrough on
       set -ga update-environment TERM
       set -ga update-environment TERM_PROGRAM
-      set -g default-terminal "xterm-256color"
-      set -ag terminal-overrides ",xterm-256color:RGB"
+      set -g default-terminal "screen-256color"
       set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
       set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
 

@@ -9,7 +9,7 @@ return {
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     options = {
-      opt = { -- vim.opt.<key>
+      opt = {
         scrolloff = 5,
         sidescrolloff = 5,
       },

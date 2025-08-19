@@ -21,7 +21,7 @@ require("lazy").setup({
   },
   install = { colorscheme = { "catppuccin", "astrotheme", "habamax" } },
   ui = { backdrop = 100 },
-  change_detection = { enabled = false },
+  change_detection = { notify = false },
   performance = {
     rtp = {
       -- disable some rtp plugins, add more to your liking
