@@ -34,7 +34,7 @@
   imports = [
     ./neovim/neovim.nix
     ./kitty.nix
-    ./zsh.nix
+    ./zsh/zsh.nix
     ./catppuccin.nix
     ./lang/init.nix
     ./git.nix

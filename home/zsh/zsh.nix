@@ -14,19 +14,19 @@
       cd = "z";
       sk = "fzf";
     };
-    initContent = ''
-      if [ -f $HOME/.env ]; then
-        set -a
-        source $HOME/.env
-        set +a
-      fi
+    initContent =
+      ''
+        if [ -f $HOME/.env ]; then
+          set -a
+          source $HOME/.env
+          set +a
+        fi
 
-      eval "$(zoxide init zsh)"
+        eval "$(zoxide init zsh)"
 
-      if [ -f $HOME/.p10k.zsh ]; then
-      	source $HOME/.p10k.zsh
-      fi
-    '';
+      ''
+      + builtins.readFile ./.p10k.zsh;
+
     plugins = [
       {
         name = "powerlevel10k";
@@ -60,5 +60,4 @@
       }
     ];
   };
-  home.file.".p10k.zsh".source = ./.p10k.zsh;
 }
