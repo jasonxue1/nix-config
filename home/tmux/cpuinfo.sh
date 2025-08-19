@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-# CPU：从 "NN.N% idle" 抠出数字，用 100-idle 得到使用率；不依赖 gawk 的第三参 match
 cpu_usage=$(
   top -l 1 -n 0 | awk '
     /CPU usage/ {
@@ -21,7 +20,6 @@ cpu_usage=$(
     }'
 )
 
-# MEM：vm_stat 轻量；把压缩内存算进已用
 mem_usage=$(
   vm_stat | awk '
     /Pages active/                 {a=$3+0}
@@ -39,11 +37,6 @@ mem_usage=$(
     }'
 )
 
-# 温度：工具存在就用，不在就 N/A
-if command -v osx-cpu-temp >/dev/null 2>&1; then
-  temp=$(osx-cpu-temp)
-else
-  temp="N/A"
-fi
+temp=$(osx-cpu-temp)
 
 echo "CPU: $cpu_usage | MEM: $mem_usage | TEMP: $temp"

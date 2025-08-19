@@ -6,5 +6,6 @@
     ./json.nix
     ./js_ts.nix
     ./html_css.nix
+    ./sh.nix
   ];
 }
