@@ -32,7 +32,7 @@
   };
 
   imports = [
-    ./neovim.nix
+    ./neovim/neovim.nix
     ./kitty.nix
     ./zsh.nix
     ./catppuccin.nix
