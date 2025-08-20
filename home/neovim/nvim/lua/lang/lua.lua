@@ -5,6 +5,12 @@ return {
     opts = function(_, opts)
       opts.servers =
         require("astrocore").list_insert_unique(opts.servers, { "lua_ls" })
+      opts.formatting = {
+        disabled = require("astrocore").list_insert_unique(
+          opts.formatting.disabled,
+          { "lua_ls" }
+        ),
+      }
     end,
   },
   {
