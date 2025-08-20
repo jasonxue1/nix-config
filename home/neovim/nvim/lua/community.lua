@@ -9,4 +9,5 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
 }
