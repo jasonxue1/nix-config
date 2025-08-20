@@ -10,4 +10,5 @@ return {
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
+  { import = "astrocommunity.lsp.actions-preview-nvim" },
 }
