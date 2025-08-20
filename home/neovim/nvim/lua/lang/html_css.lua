@@ -20,5 +20,3 @@ return {
     end,
   },
 }
-
--- ERROR eslint cannot work

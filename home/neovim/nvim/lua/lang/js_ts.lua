@@ -3,11 +3,8 @@ return {
   {
     "Astronvim/astrolsp",
     opts = function(_, opts)
-      opts.servers = require("astrocore").list_insert_unique(
-        opts.servers,
-        { "vtsls", "eslint" }
-      )
-      opts.autocmds.eslint_fix_on_save = false
+      opts.servers =
+        require("astrocore").list_insert_unique(opts.servers, { "vtsls" })
     end,
   },
   {
@@ -16,9 +13,10 @@ return {
       local null_ls = require "null-ls"
       opts.sources = require("astrocore").list_insert_unique(opts.sources, {
         null_ls.builtins.formatting.prettierd,
+        -- require "none-ls.formatting.eslint",
+        require "none-ls.diagnostics.eslint",
+        require "none-ls.code_actions.eslint",
       })
     end,
   },
 }
-
--- ERROR eslint cannot work
