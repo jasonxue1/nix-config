@@ -18,7 +18,7 @@
     ./lang
     ./git.nix
     ./tools
-    ./secrets.nix
+    ./secrets
     ./tmux
     ./firefox.nix
     ./fonts.nix
