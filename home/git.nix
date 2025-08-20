@@ -16,10 +16,12 @@
 
     matchBlocks = {
       "github.com" = {
-        hostname = "github.com";
+        hostname = "ssh.github.com";
         user = "git";
+        port = 443;
         identitiesOnly = true;
         identityFile = "~/.ssh/jasonxue_ed25519_github";
+        proxyCommand = "nc -v -x 127.0.0.1:7897 %h %p";
         extraOptions = {
           StrictHostKeyChecking = "accept-new";
           ControlMaster = "auto";

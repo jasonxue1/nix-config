@@ -4,7 +4,7 @@
   home.sessionVariables = {
     https_proxy = "http://127.0.0.1:7897";
     http_proxy = "http://127.0.0.1:7897";
-    all_proxy = "socks5://127.0.0.1:7897";
+    all_proxy = "socks5h://127.0.0.1:7897";
 
     EDITOR = "nvim";
     SHELL = "${pkgs.zsh}/bin/zsh";
