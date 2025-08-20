@@ -23,5 +23,6 @@
     ./firefox.nix
     ./fonts.nix
     ./key_mappings
+    ./social.nix
   ];
 }

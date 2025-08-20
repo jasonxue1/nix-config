@@ -16,6 +16,7 @@
 
   # Explicit host platform.
   nixpkgs.hostPlatform = "x86_64-darwin";
+  nixpkgs.config.allowUnfree = true;
 
   # Nix daemon settings and substituters.
   nix = {

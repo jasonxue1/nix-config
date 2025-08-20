@@ -42,7 +42,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.jason = {
             imports = [
-              ./home/home.nix
+              ./home
               catppuccin.homeModules.catppuccin
               sops-nix.homeManagerModules.sops
             ];
