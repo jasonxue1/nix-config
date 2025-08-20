@@ -11,4 +11,5 @@ return {
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.lsp.actions-preview-nvim" },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 }
