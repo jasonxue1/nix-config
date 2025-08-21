@@ -6,7 +6,10 @@
   # System-level settings for this nix-darwin host.
 
   # Core packages available system-wide.
-  environment.systemPackages = [pkgs.vim];
+  environment.systemPackages = with pkgs; [
+    vim
+    cachix
+  ];
 
   # Track configuration revision for `darwin-version`.
   system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -48,5 +51,5 @@
     Defaults env_keep += "http_proxy https_proxy all_proxy"
   '';
 
-  # system.primaryUser = "jason";
+  system.primaryUser = "jason";
 }

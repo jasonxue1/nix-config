@@ -17,6 +17,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    topiary_nushell = {
+      url = "github:blindFS/topiary-nushell";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -25,6 +29,7 @@
     catppuccin,
     sops-nix,
     nixpkgs,
+    topiary_nushell,
     home-manager,
     ...
   }: let
@@ -32,7 +37,6 @@
     pkgs = import nixpkgs {inherit system;};
   in {
     darwinConfigurations."jason-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      # Pass `self` to modules for revision tracking.
       specialArgs = {inherit self;};
       modules = [
         ./darwin.nix
@@ -40,6 +44,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {inherit topiary_nushell;};
           home-manager.users.jason = {
             imports = [
               ./home

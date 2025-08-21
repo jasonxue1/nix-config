@@ -7,5 +7,7 @@
     ./js_ts.nix
     ./html_css.nix
     ./sh.nix
+    ./nushell.nix
+    ./rust.nix
   ];
 }

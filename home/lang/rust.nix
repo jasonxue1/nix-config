@@ -8,4 +8,7 @@
     rust-analyzer
     cargo-binstall
   ];
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+  ];
 }

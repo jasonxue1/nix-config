@@ -13,7 +13,7 @@
   imports = [
     ./neovim
     ./kitty.nix
-    ./zsh
+    ./shell
     ./catppuccin.nix
     ./lang
     ./git.nix

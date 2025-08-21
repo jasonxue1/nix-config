@@ -7,6 +7,8 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.eslint" },
   { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.nushell" },
+  { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
