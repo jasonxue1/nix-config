@@ -1,10 +1,6 @@
-{pkgs, ...}: let
-  shellAliases = import ../shell_aliases.nix;
-in {
-  # Zsh shell configuration, aliases, and plugins.
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
-    inherit shellAliases;
     initContent =
       ''
         if [ -f $HOME/.env ]; then
