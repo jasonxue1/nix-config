@@ -3,7 +3,7 @@
     ./zsh
     ./nushell
     ./carapace.nix
-    ./starship.nix
+    ./starship
   ];
   home.sessionVariables = {
     SHELL = "${pkgs.nushell}/bin/nu";
