@@ -1,19 +1,10 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  shellAliases = import ../shell_aliases.nix;
+in {
   # Zsh shell configuration, aliases, and plugins.
   programs.zsh = {
     enable = true;
-    shellAliases = {
-      v = "nvim";
-      lg = "lazygit";
-      nixfmt = "nix fmt --no-write-lock-file";
-      ls = "eza --icons=auto";
-      ll = "eza -lg --icons=auto";
-      tn = "tmux new -s";
-      ta = "tmux a -t";
-      y = "yazi";
-      cd = "z";
-      sk = "fzf";
-    };
+    inherit shellAliases;
     initContent =
       ''
         if [ -f $HOME/.env ]; then

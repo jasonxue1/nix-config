@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     rustc
     cargo
@@ -9,6 +13,6 @@
     cargo-binstall
   ];
   home.sessionPath = [
-    "$HOME/.cargo/bin"
+    "${config.home.homeDirectory}/.cargo/bin"
   ];
 }

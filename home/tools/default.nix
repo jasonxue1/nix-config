@@ -13,8 +13,10 @@
     tree-sitter
     eza
     yazi
-    zoxide
     skim
     bat
+  ];
+  imports = [
+    ./zoxide.nix
   ];
 }

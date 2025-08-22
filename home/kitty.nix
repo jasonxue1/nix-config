@@ -22,10 +22,11 @@
       macos_option_as_alt = "yes";
       macos_quit_when_last_window_closed = "yes";
 
-      shell = "${pkgs.zsh}/bin/zsh";
+      shell = "${pkgs.nushell}/bin/nu";
 
       background_opacity = "1.0";
       allow_remote_control = "yes";
+      disable_ligatures = "always";
     };
   };
 }
