@@ -9,9 +9,14 @@
       test = "ecal test";
     };
     enable = true;
-    extraEnv = ''
-      let to_add = [ ${builtins.concatStringsSep " " (map (p: "\"${p}\"") config.home.sessionPath)} ]
-      $env.PATH = ($to_add | append $env.PATH | uniq)
-    '';
+    extraEnv =
+      ''
+        let to_add_path = [ ${builtins.concatStringsSep " " (map (p: "\"${p}\"") config.home.sessionPath)} ]
+        $env.PATH = ($to_add_path | append $env.PATH | uniq)
+
+        let to_add_vars = ${builtins.toJSON config.home.sessionVariables}
+        load-env $to_add_vars
+      ''
+      + builtins.readFile ./env.nu;
   };
 }

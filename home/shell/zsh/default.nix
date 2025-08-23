@@ -8,9 +8,6 @@
           source $HOME/.env
           set +a
         fi
-
-        eval "$(zoxide init zsh)"
-
       ''
       + builtins.readFile ./.p10k.zsh;
 
