@@ -40,5 +40,6 @@
     ./fonts.nix
     ./key_mappings
     ./social.nix
+    ./scripts
   ];
 }
