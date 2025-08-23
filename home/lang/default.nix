@@ -9,5 +9,6 @@
     ./sh.nix
     ./nushell.nix
     ./rust.nix
+    ./python.nix
   ];
 }
