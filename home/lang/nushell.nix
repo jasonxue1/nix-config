@@ -1,6 +1,6 @@
 {
   pkgs,
-  topiary_nushell,
+  topiary-nushell,
   ...
 }: {
   home = {
@@ -8,8 +8,8 @@
       nushell
     ];
     sessionVariables = {
-      TOPIARY_CONFIG_FILE = "${topiary_nushell}/languages.ncl";
-      TOPIARY_LANGUAGE_DIR = "${topiary_nushell}/languages";
+      TOPIARY_CONFIG_FILE = "${topiary-nushell}/languages.ncl";
+      TOPIARY_LANGUAGE_DIR = "${topiary-nushell}/languages";
     };
   };
 }
