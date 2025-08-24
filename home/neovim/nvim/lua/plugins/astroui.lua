@@ -9,6 +9,7 @@ return {
   },
   {
     "catppuccin/nvim",
+    optional = true,
     priority = 1000,
     opts = {
       flavour = "mocha",

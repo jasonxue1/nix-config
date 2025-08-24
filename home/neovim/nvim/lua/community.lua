@@ -14,4 +14,6 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.lsp.actions-preview-nvim" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  { import = "astrocommunity.fuzzy-finder.snacks-picker" },
+  { import = "astrocommunity.utility.noice-nvim" },
 }
