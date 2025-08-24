@@ -69,6 +69,15 @@ in {
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
       };
+
+      Proxy = {
+        Mode = "manual";
+        HTTPProxy = "127.0.0.1:7897";
+        SSLProxy = "127.0.0.1:7897";
+        SOCKSProxy = "127.0.0.1:7897";
+        SOCKSVersion = 5;
+        # Passthrough = "localhost, 127.0.0.1";
+      };
     };
   };
 }
