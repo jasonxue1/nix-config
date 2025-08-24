@@ -25,17 +25,23 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nix-darwin,
     catppuccin,
     sops-nix,
     nixpkgs,
-    topiary-nushell,
     home-manager,
     rust-overlay,
+    nix-homebrew,
+    homebrew-cask,
     ...
   }: let
     system = "x86_64-darwin";
@@ -46,16 +52,35 @@
         allowUnfree = true;
       };
     };
+    username = "jason";
   in {
     darwinConfigurations."jason-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      specialArgs = {inherit self pkgs;};
+      specialArgs = {inherit self pkgs inputs;};
       modules = [
         ./darwin.nix
         home-manager.darwinModules.home-manager
+
+        nix-homebrew.darwinModules.nix-homebrew
+        ({...}: {
+          nix-homebrew = {
+            enable = true;
+            user = username;
+
+            taps = {
+              "homebrew/homebrew-cask" = homebrew-cask;
+            };
+            mutableTaps = false;
+          };
+        })
+        ({config, ...}: {
+          homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+        })
+        ./brew.nix
+
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit topiary-nushell;};
+          home-manager.extraSpecialArgs = {inherit inputs;};
           home-manager.users.jason = {
             imports = [
               ./home
