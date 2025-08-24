@@ -18,5 +18,8 @@
         load-env $to_add_vars
       ''
       + builtins.readFile ./env.nu;
+    settings = {
+      edit_mode = "vi";
+    };
   };
 }
