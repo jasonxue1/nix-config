@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   programs.nushell = {
@@ -21,5 +22,10 @@
     settings = {
       edit_mode = "vi";
     };
+    plugins = with pkgs.nushellPlugins; [
+      highlight
+      skim
+      gstat
+    ];
   };
 }
