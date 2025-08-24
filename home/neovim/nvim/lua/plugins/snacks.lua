@@ -5,6 +5,8 @@ return {
   optional = true,
   ---@type snacks.Config
   opts = {
-    image = {},
+    image = {
+      doc = { enabled = true },
+    },
   },
 }

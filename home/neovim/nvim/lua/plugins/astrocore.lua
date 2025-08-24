@@ -14,5 +14,13 @@ return {
         sidescrolloff = 5,
       },
     },
+    mappings = {
+      n = {
+        U = {
+          "<cmd>redo<CR>",
+          desc = "Redo",
+        },
+      },
+    },
   },
 }

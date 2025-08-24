@@ -16,4 +16,7 @@ return {
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.fuzzy-finder.snacks-picker" },
   { import = "astrocommunity.utility.noice-nvim" },
+  { import = "astrocommunity.completion.copilot-cmp" },
+  { import = "astrocommunity.editing-support.copilotchat-nvim" },
+  { import = "astrocommunity.icon.mini-icons" },
 }
