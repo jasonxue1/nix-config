@@ -31,9 +31,8 @@
       tab_bar_style = "powerline";
       tab_powerline_style = "slanted";
       tab_title_template = "'({index}) {title}'";
-
-      kitty_mod = "ctrl+shift";
     };
+
     keybindings = {
       "option+c" = "close_window";
       "option+n" = "next_window";
