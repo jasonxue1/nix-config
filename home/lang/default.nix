@@ -10,5 +10,6 @@
     ./nushell.nix
     ./rust.nix
     ./python.nix
+    ./toml.nix
   ];
 }

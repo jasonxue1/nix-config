@@ -1,0 +1,17 @@
+---@type LazySpec
+return {
+  {
+    "Astronvim/astrolsp",
+    opts = function(_, opts)
+      opts.servers = require("astrocore").list_insert_unique(
+        opts.servers,
+        { "basedpyright", "ruff" }
+      )
+    end,
+  },
+  {
+    "linux-cultist/venv-selector.nvim",
+    enabled = false,
+    optional = true,
+  },
+}
