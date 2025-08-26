@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   programs.nushell = {
@@ -23,6 +24,12 @@
       edit_mode = "vi";
       completions = {
         algorithm = "fuzzy";
+      };
+      plugins = {
+        highlight = {
+          theme = "Catppuccin Mocha";
+          custom_themes = "${inputs.catppuccin-tmtheme}/themes";
+        };
       };
     };
     plugins = with pkgs.nushellPlugins; [

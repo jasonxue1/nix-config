@@ -30,6 +30,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    catppuccin-tmtheme = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
