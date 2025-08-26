@@ -15,5 +15,6 @@
     ./key_mappings
     ./social.nix
     ./scripts
+    ./auto_launch.nix
   ];
 }
