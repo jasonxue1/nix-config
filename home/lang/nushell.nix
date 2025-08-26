@@ -6,6 +6,7 @@
   home = {
     packages = with pkgs; [
       nushell
+      topiary
     ];
     sessionVariables = {
       TOPIARY_CONFIG_FILE = "${inputs.topiary-nushell}/languages.ncl";
