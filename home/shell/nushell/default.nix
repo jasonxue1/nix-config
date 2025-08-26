@@ -21,6 +21,9 @@
       + builtins.readFile ./env.nu;
     settings = {
       edit_mode = "vi";
+      completions = {
+        algorithm = "fuzzy";
+      };
     };
     plugins = with pkgs.nushellPlugins; [
       highlight

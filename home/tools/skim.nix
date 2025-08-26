@@ -1,0 +1,5 @@
+{...}: {
+  programs.skim = {
+    enable = true;
+  };
+}

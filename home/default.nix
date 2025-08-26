@@ -9,8 +9,8 @@
     ./git.nix
     ./tools
     ./secrets
-    ./tmux
-    ./firefox.nix
+    # ./tmux
+    ./browser
     ./fonts.nix
     ./key_mappings
     ./social.nix

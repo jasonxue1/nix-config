@@ -22,4 +22,5 @@ return {
   { import = "astrocommunity.completion.copilot-cmp" },
   { import = "astrocommunity.editing-support.copilotchat-nvim" },
   { import = "astrocommunity.icon.mini-icons" },
+  { import = "astrocommunity.test.neotest" },
 }

@@ -38,7 +38,7 @@
             ]
           },
           {
-            "description": "Hyper-3 opens Firefox",
+            "description": "Hyper-3 opens Brave",
             "manipulators": [
               {
                 "type": "basic",
@@ -50,7 +50,27 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'firefox'",
+                    "shell_command": "open -a 'brave browser'",
+                    "repeat": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Hyper-p opens Bitwarden",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": ["right_option"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'bitwarden'",
                     "repeat": false
                   }
                 ]

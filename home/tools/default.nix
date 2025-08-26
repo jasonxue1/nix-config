@@ -1,22 +1,22 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    codex
     curl
     wget
     coreutils
-    ripgrep
-    bottom
     gdu
-    fzf
     age
     sops
     tree-sitter
-    eza
-    yazi
-    skim
-    bat
   ];
   imports = [
+    ./bat.nix
+    ./bottom.nix
+    ./codex.nix
+    ./eza.nix
+    ./fzf.nix
+    ./ripgrep.nix
+    ./skim.nix
+    ./yazi.nix
     ./zoxide.nix
   ];
 }
