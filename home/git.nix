@@ -6,8 +6,10 @@
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
+
     extraConfig = ''
-      AddKeysToAgent yes
+      AddKeysToAgent no
       UseKeychain yes
       ServerAliveInterval 30
       ServerAliveCountMax 3
@@ -15,12 +17,7 @@
     '';
 
     matchBlocks = {
-      "github.com" = {
-        hostname = "ssh.github.com";
-        user = "git";
-        port = 443;
-        identitiesOnly = true;
-        identityFile = "~/.ssh/jasonxue_ed25519_github";
+      "*" = {
         proxyCommand = "nc -v -x 127.0.0.1:7897 %h %p";
         extraOptions = {
           StrictHostKeyChecking = "accept-new";
@@ -28,6 +25,13 @@
           ControlPersist = "10m";
           ControlPath = "/tmp/cm-%r@%h:%p";
         };
+      };
+      "github.com" = {
+        hostname = "ssh.github.com";
+        user = "git";
+        port = 443;
+        identitiesOnly = true;
+        identityFile = "~/.ssh/jasonxue_ed25519_github";
       };
     };
   };
@@ -72,6 +76,7 @@
       user.signingkey = "~/.ssh/jasonxue_ed25519_signing";
       commit.gpgsign = true;
     };
+
     delta = {
       enable = true;
       options = {
