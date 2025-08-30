@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.toml" },
+  { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
@@ -23,4 +24,6 @@ return {
   { import = "astrocommunity.editing-support.copilotchat-nvim" },
   { import = "astrocommunity.icon.mini-icons" },
   { import = "astrocommunity.test.neotest" },
+  -- { import = "astrocommunity.markdown-and-latex.vimtex" },
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
 }

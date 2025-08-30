@@ -10,5 +10,8 @@
     ./rust.nix
     ./python.nix
     ./toml.nix
+    ./latex.nix
+    ./pdf.nix
+    ./markdown.nix
   ];
 }

@@ -12,6 +12,7 @@
     ./bat.nix
     ./bottom.nix
     ./codex.nix
+    ./dbus.nix
     ./eza.nix
     ./fd.nix
     ./fzf.nix
@@ -20,6 +21,7 @@
     ./skim.nix
     ./treefmt.nix
     ./yazi.nix
+    ./zathura.nix
     ./zoxide.nix
   ];
 }

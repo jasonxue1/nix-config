@@ -4,6 +4,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    jason-nixpkgs.url = "github:jasonxue1/nixpkgs/master";
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,6 +43,7 @@
     catppuccin,
     sops-nix,
     nixpkgs,
+    jason-nixpkgs,
     home-manager,
     rust-overlay,
     nix-homebrew,
@@ -51,7 +53,16 @@
     system = "x86_64-darwin";
     pkgs = import nixpkgs {
       inherit system;
-      overlays = [rust-overlay.overlays.default];
+      overlays = [
+        rust-overlay.overlays.default
+        (
+          _: _: {
+            jasonPkgs = import jason-nixpkgs {
+              inherit system;
+            };
+          }
+        )
+      ];
       config = {
         allowUnfree = true;
       };

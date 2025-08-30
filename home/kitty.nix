@@ -19,7 +19,7 @@
 
       macos_option_as_alt = "yes";
       macos_quit_when_last_window_closed = "yes";
-      macos_window_resizable = "no";
+      macos_window_resizable = "yes";
       remember_window_size = "yes";
 
       shell = "${pkgs.nushell}/bin/nu";

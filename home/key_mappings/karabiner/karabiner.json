@@ -58,19 +58,19 @@
             ]
           },
           {
-            "description": "Hyper-p opens Bitwarden",
+            "description": "Hyper-6 focus Zathura",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "p",
+                  "key_code": "6",
                   "modifiers": {
                     "mandatory": ["right_option"]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'bitwarden'",
+                    "shell_command": "/etc/profiles/per-user/jason/bin/focus_app zathura",
                     "repeat": false
                   }
                 ]
@@ -91,6 +91,26 @@
                 "to": [
                   {
                     "shell_command": "open -a 'QQ'",
+                    "repeat": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Hyper-p opens Bitwarden",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": ["right_option"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'bitwarden'",
                     "repeat": false
                   }
                 ]
