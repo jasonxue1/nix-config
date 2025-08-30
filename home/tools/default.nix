@@ -18,6 +18,7 @@
     ./man.nix
     ./ripgrep.nix
     ./skim.nix
+    ./treefmt.nix
     ./yazi.nix
     ./zoxide.nix
   ];
