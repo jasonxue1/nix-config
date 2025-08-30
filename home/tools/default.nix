@@ -14,6 +14,7 @@
     ./codex.nix
     ./eza.nix
     ./fzf.nix
+    ./man.nix
     ./ripgrep.nix
     ./skim.nix
     ./yazi.nix
