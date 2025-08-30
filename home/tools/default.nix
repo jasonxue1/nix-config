@@ -13,6 +13,7 @@
     ./bottom.nix
     ./codex.nix
     ./eza.nix
+    ./fd.nix
     ./fzf.nix
     ./man.nix
     ./ripgrep.nix
