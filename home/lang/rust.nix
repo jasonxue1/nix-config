@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     lldb_21
     rust-bin.stable.latest.default
+    # rust-bin.nightly.latest.default
     cargo-binstall
     rust-analyzer
     # use mold in Linux
@@ -28,6 +29,7 @@
     cargo-make
     cargo-release
     cargo-benchcmp
+    cargo-flamegraph
   ];
 
   home.sessionPath = [
