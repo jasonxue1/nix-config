@@ -13,5 +13,6 @@
     ./latex.nix
     ./pdf.nix
     ./markdown.nix
+    ./yaml.nix
   ];
 }

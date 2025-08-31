@@ -13,6 +13,7 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
