@@ -16,6 +16,7 @@
     ./eza.nix
     ./fd.nix
     ./fzf.nix
+    ./just.nix
     ./man.nix
     ./ripgrep.nix
     ./skim.nix
