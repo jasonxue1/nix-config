@@ -30,6 +30,11 @@
     cargo-release
     cargo-benchcmp
     cargo-flamegraph
+    wasm-pack
+    wasm-bindgen-cli
+    binaryen
+    wabt
+    wasmtime
   ];
 
   home.sessionPath = [
