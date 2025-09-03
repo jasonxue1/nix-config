@@ -3,5 +3,7 @@
     emmet-ls
     vscode-langservers-extracted
     prettierd
+    prettier
+    http-server
   ];
 }

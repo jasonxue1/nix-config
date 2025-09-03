@@ -7,5 +7,6 @@
     vtsls
     eslint
     prettierd
+    prettier
   ];
 }
