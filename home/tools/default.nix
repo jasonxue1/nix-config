@@ -13,10 +13,10 @@
     ./bottom.nix
     ./codex.nix
     ./dbus.nix
+    ./direnv.nix
     ./eza.nix
     ./fd.nix
     ./fzf.nix
-    ./just.nix
     ./man.nix
     ./ripgrep.nix
     ./skim.nix

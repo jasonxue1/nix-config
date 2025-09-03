@@ -14,5 +14,6 @@
     ./pdf.nix
     ./markdown.nix
     ./yaml.nix
+    ./just.nix
   ];
 }
