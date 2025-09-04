@@ -6,5 +6,7 @@
     deadnix
     statix
     alejandra
+    nixpkgs-hammering
+    nixpkgs-review
   ];
 }
