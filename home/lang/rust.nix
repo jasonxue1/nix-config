@@ -5,10 +5,8 @@
 }: {
   home.packages = with pkgs; [
     lldb_21
-    rust-bin.stable.latest.default
-    # rust-bin.nightly.latest.default
+    rust-bin.stable.latest.complete
     cargo-binstall
-    rust-analyzer
     # use mold in Linux
     pkg-config
     cargo-edit
