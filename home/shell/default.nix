@@ -38,7 +38,6 @@
       tn = "tmux new -s";
       ta = "tmux a -t";
       y = "yazi";
-      cd = "z";
     };
 
     sessionPath = [
