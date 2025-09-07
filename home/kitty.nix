@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, ...}: {
   # Kitty terminal configuration (font, UI, and shell).
   programs.kitty = {
     enable = true;
@@ -22,7 +22,7 @@
       macos_window_resizable = "yes";
       remember_window_size = "yes";
 
-      shell = "${pkgs.nushell}/bin/nu";
+      shell = config.home.sessionVariables.SHELL;
 
       background_opacity = "1.0";
       allow_remote_control = "yes";

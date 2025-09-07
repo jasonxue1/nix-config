@@ -38,4 +38,7 @@
       gstat
     ];
   };
+  home.packages = with pkgs; [
+    skim
+  ];
 }

@@ -10,6 +10,14 @@
     vim
     cachix
   ];
+  programs.fish = {
+    enable = true;
+    vendor = {
+      completions.enable = true;
+      config.enable = true;
+      functions.enable = true;
+    };
+  };
 
   # Track configuration revision for `darwin-version`.
   system.configurationRevision = self.rev or self.dirtyRev or null;

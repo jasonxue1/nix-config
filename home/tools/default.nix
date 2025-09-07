@@ -19,7 +19,6 @@
     ./fzf.nix
     ./man.nix
     ./ripgrep.nix
-    ./skim.nix
     ./treefmt.nix
     ./yazi.nix
     ./zathura.nix

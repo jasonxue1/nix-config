@@ -5,19 +5,20 @@
 }: {
   imports = [
     ./zsh
-    ./nushell
-    ./carapace.nix
-    ./starship
+    # ./nushell
+    # ./starship
+    ./fish
   ];
 
   home = {
     sessionVariables = {
-      SHELL = "${pkgs.nushell}/bin/nu";
+      SHELL = "${pkgs.fish}/bin/fish";
     };
 
     shell = {
       enableZshIntegration = true;
-      enableNushellIntegration = true;
+      # enableNushellIntegration = true;
+      enableFishIntegration = true;
     };
 
     sessionVariables = {
@@ -35,8 +36,8 @@
       lg = "lazygit";
       ls = "eza --icons=auto";
       ll = "eza -lg --icons=auto";
-      tn = "tmux new -s";
-      ta = "tmux a -t";
+      # tn = "tmux new -s";
+      # ta = "tmux a -t";
       y = "yazi";
     };
 

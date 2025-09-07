@@ -15,5 +15,6 @@
     ./markdown.nix
     ./yaml.nix
     ./just.nix
+    ./fish.nix
   ];
 }
