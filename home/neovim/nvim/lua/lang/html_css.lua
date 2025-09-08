@@ -7,6 +7,12 @@ return {
         opts.servers,
         { "cssls", "html" }
       )
+      opts.formatting = {
+        disabled = require("astrocore").list_insert_unique(
+          opts.formatting.disabled,
+          { "html" }
+        ),
+      }
     end,
   },
   {
