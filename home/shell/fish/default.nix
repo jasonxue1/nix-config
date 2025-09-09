@@ -9,10 +9,6 @@ in {
         src = pkgs.fishPlugins.tide.src;
       }
       {
-        name = "sponge";
-        src = pkgs.fishPlugins.sponge.src;
-      }
-      {
         name = "autopair";
         src = pkgs.fishPlugins.autopair.src;
       }

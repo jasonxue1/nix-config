@@ -8,5 +8,6 @@
     alejandra
     nixpkgs-hammering
     nixpkgs-review
+    nix-update
   ];
 }

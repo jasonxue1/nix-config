@@ -18,6 +18,7 @@
     ./fd.nix
     ./fzf.nix
     ./man.nix
+    ./magick.nix
     ./ripgrep.nix
     ./treefmt.nix
     ./yazi.nix

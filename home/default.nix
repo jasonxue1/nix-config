@@ -9,12 +9,13 @@
     ./git.nix
     ./tools
     ./secrets
-    # ./tmux
     ./browser
     ./fonts.nix
     ./key_mappings
     ./social.nix
     ./scripts
     ./auto_launch.nix
+
+    # ./tmux
   ];
 }

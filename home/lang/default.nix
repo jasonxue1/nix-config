@@ -6,15 +6,15 @@
     ./js_ts.nix
     ./html_css.nix
     ./sh.nix
-    ./nushell.nix
-    ./rust.nix
     ./python.nix
     ./toml.nix
     ./latex.nix
-    ./pdf.nix
-    ./markdown.nix
     ./yaml.nix
     ./just.nix
     ./fish.nix
+    ./nushell.nix
+    ./rust.nix
+    ./pdf.nix
+    ./markdown.nix
   ];
 }

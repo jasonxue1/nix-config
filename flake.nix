@@ -4,6 +4,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-master.url = "github:NixOS/nixpkgs/master";
     jason-nixpkgs.url = "github:jasonxue1/nixpkgs/master";
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
@@ -44,6 +45,7 @@
     sops-nix,
     nixpkgs,
     jason-nixpkgs,
+    nix-master,
     home-manager,
     rust-overlay,
     nix-homebrew,
@@ -58,6 +60,13 @@
         (
           _: _: {
             jasonPkgs = import jason-nixpkgs {
+              inherit system;
+            };
+          }
+        )
+        (
+          _: _: {
+            master = import nix-master {
               inherit system;
             };
           }

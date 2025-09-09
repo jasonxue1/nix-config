@@ -1,8 +1,16 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    tex-fmt
-    texlab
-    ltex-ls-plus
-    texliveFull
+  home.packages = [
+    pkgs.tex-fmt
+    pkgs.texlab
+    pkgs.ltex-ls-plus
+    # texliveFull
+    (pkgs.texlive.withPackages (ps:
+      with ps; [
+        xetex
+        latexmk
+        biber
+        scheme-small
+        collection-langchinese
+      ]))
   ];
 }
