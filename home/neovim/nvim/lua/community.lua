@@ -27,6 +27,5 @@ return {
   { import = "astrocommunity.editing-support.copilotchat-nvim" },
   { import = "astrocommunity.icon.mini-icons" },
   { import = "astrocommunity.test.neotest" },
-  -- { import = "astrocommunity.markdown-and-latex.vimtex" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
 }
