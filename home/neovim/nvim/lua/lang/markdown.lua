@@ -3,8 +3,10 @@ return {
   {
     "Astronvim/astrolsp",
     opts = function(_, opts)
-      opts.servers =
-        require("astrocore").list_insert_unique(opts.servers, { "marksman" })
+      opts.servers = require("astrocore").list_insert_unique(
+        opts.servers,
+        { "marksman", "mdx_analyzer" }
+      )
     end,
   },
   {

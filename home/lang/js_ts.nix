@@ -5,8 +5,5 @@
     vscode-langservers-extracted
     vscode-js-debug
     vtsls
-    eslint
-    prettierd
-    prettier
   ];
 }

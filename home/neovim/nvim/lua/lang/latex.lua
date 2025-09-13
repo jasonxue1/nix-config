@@ -3,10 +3,8 @@ return {
   {
     "Astronvim/astrolsp",
     opts = function(_, opts)
-      opts.servers = require("astrocore").list_insert_unique(
-        opts.servers,
-        { "texlab", "ltex_plus" }
-      )
+      opts.servers =
+        require("astrocore").list_insert_unique(opts.servers, { "texlab" })
       opts.config = {
         texlab = {
           settings = {

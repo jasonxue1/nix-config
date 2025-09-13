@@ -1,6 +1,5 @@
 ---@type LazySpec
 return {
-
   {
     "Astronvim/astrolsp",
     opts = function(_, opts)

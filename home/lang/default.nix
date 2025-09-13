@@ -16,5 +16,6 @@
     ./rust.nix
     ./pdf.nix
     ./markdown.nix
+    ./prettier.nix
   ];
 }

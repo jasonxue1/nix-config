@@ -3,6 +3,7 @@
     mermaid-cli
     marksman
     mado
+    mdx-language-server
     pkgs.master.mdsf
   ];
 }
