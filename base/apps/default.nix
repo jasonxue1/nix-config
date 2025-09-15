@@ -1,0 +1,7 @@
+{...}: {
+  imports = [
+    ./browser
+    ./social.nix
+  ];
+}
+

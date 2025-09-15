@@ -1,6 +1,0 @@
-{...}: {
-  imports = [
-    ./sops
-    ./bitwarden.nix
-  ];
-}

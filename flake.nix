@@ -38,60 +38,43 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    nix-darwin,
-    catppuccin,
-    sops-nix,
-    nixpkgs,
-    jason-nixpkgs,
-    nix-master,
-    home-manager,
-    rust-overlay,
-    nix-homebrew,
-    homebrew-cask,
-    ...
-  }: let
-    system = "x86_64-darwin";
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [
-        rust-overlay.overlays.default
-        (
-          _: _: {
-            jasonPkgs = import jason-nixpkgs {
-              inherit system;
-            };
-          }
-        )
-        (
-          _: _: {
-            master = import nix-master {
-              inherit system;
-            };
-          }
-        )
-      ];
-      config = {
-        allowUnfree = true;
-      };
-    };
+  outputs = {self, ...} @ inputs: let
+    # Single user to support across all hosts
     username = "jason";
-  in {
-    darwinConfigurations."jason-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      specialArgs = {inherit self pkgs inputs;};
-      modules = [
-        ./darwin.nix
-        home-manager.darwinModules.home-manager
 
-        nix-homebrew.darwinModules.nix-homebrew
+    # Create pkgs with consistent overlays and config for a given system
+    mkPkgs = system:
+      import inputs.nixpkgs {
+        inherit system;
+        overlays = import ./overlays/common.nix {inherit inputs;};
+        config = {allowUnfree = true;};
+      };
+
+    # Common Home Manager modules shared by macOS and Linux
+    homeModulesBase = [
+      ./base
+      inputs.catppuccin.homeModules.catppuccin
+      inputs.sops-nix.homeManagerModules.sops
+    ];
+
+    linuxSystem = "x86_64-linux";
+  in {
+    darwinConfigurations."jason-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
+      # Explicit evaluation system for this host (detected as x86_64)
+      system = "x86_64-darwin";
+      specialArgs = {inherit self inputs username;};
+      modules = [
+        ./modules/darwin/system.nix
+        inputs.home-manager.darwinModules.home-manager
+
+        inputs.nix-homebrew.darwinModules.nix-homebrew
         ({...}: {
           nix-homebrew = {
             enable = true;
             user = username;
 
             taps = {
-              "homebrew/homebrew-cask" = homebrew-cask;
+              "homebrew/homebrew-cask" = inputs.homebrew-cask;
             };
             mutableTaps = false;
           };
@@ -99,24 +82,39 @@
         ({config, ...}: {
           homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
         })
-        ./brew.nix
+        ./modules/darwin/homebrew.nix
 
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit inputs;};
-          home-manager.users.jason = {
-            imports = [
-              ./home
-              catppuccin.homeModules.catppuccin
-              sops-nix.homeManagerModules.sops
-            ];
+          home-manager.extraSpecialArgs = {inherit inputs username;};
+          home-manager.users.${username} = {
+            imports = homeModulesBase ++ [ ./darwin ];
           };
         }
       ];
     };
 
-    # Formatter used by `nix fmt`.
-    formatter.${system} = pkgs.alejandra;
+    # Linux home-manager host (standalone, single machine)
+    homeConfigurations = {
+      "${username}@linux" = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = mkPkgs linuxSystem;
+        modules =
+          homeModulesBase
+          ++ [
+            ./linux
+            ({...}: {
+              home.username = username;
+              home.homeDirectory = "/home/${username}";
+            })
+          ];
+        extraSpecialArgs = {inherit inputs username;};
+      };
+    };
+
+    # Formatter used by `nix fmt` for both systems.
+    formatter.x86_64-darwin = (mkPkgs "x86_64-darwin").alejandra;
+    formatter.aarch64-darwin = (mkPkgs "aarch64-darwin").alejandra;
+    formatter.x86_64-linux = (mkPkgs "x86_64-linux").alejandra;
   };
 }
