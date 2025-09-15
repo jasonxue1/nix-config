@@ -4,6 +4,6 @@
     marksman
     mado
     mdx-language-server
-    pkgs.master.mdsf
+    mdsf
   ];
 }
