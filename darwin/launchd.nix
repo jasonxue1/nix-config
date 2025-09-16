@@ -17,9 +17,8 @@ in {
   config = lib.mkIf isDarwin {
     launchd.agents = {
       karabiner-elements = mkAgent "/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_console_user_server";
-      clash-verge = mkAgent "${pkgs.jasonPkgs.clash-verge-rev-bin}/Applications/Clash Verge.app/Contents/MacOS/clash-verge";
+      clash-verge = mkAgent "${pkgs.jasonPkgs.clash-verge-rev}/Applications/Clash Verge.app/Contents/MacOS/clash-verge";
       bitwarden = mkAgent "/Applications/Bitwarden.app/Contents/MacOS/Bitwarden";
     };
   };
 }
-

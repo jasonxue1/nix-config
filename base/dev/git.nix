@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   # Git, SSH, and GitHub CLI configuration.
   xdg.configFile."git/config".onChange = ''
     rm -f ~/.gitconfig
@@ -53,12 +53,26 @@
       };
     };
 
+    gpg = {
+      enable = true;
+      settings = {
+        "pinentry-mode" = "loopback";
+        "default-key" = "EC23DBDDB6176861";
+        "personal-digest-preferences" = "SHA512";
+      };
+    };
+
     git = {
       enable = true;
       lfs.enable = true;
 
       userName = "jasonxue";
       userEmail = "jason@xuechunxi.com";
+
+      signing = {
+        key = "EC23DBDDB6176861";
+        signByDefault = true;
+      };
 
       extraConfig = {
         init.defaultBranch = "main";
@@ -75,9 +89,11 @@
           };
         };
 
-        gpg.format = "ssh";
-        user.signingkey = "~/.ssh/jasonxue_ed25519_signing";
+        gpg.program = "${pkgs.gnupg}/bin/gpg";
+        gpg.format = "openpgp";
         commit.gpgsign = true;
+        tag.gpgsign = true;
+        user.useConfigOnly = true;
       };
 
       delta = {
@@ -96,4 +112,3 @@
     };
   };
 }
-

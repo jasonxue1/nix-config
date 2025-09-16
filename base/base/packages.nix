@@ -10,7 +10,6 @@
     dbus
     imagemagick
     treefmt
-    jasonPkgs.clash-verge-rev-bin
+    jasonPkgs.clash-verge-rev
   ];
 }
-
