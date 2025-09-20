@@ -4,7 +4,7 @@
     onActivation.cleanup = "uninstall";
 
     casks = [
-      "karabiner-elements"
+      # "karabiner-elements"
     ];
   };
 }
