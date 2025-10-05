@@ -3,9 +3,9 @@
     enable = true;
     initContent =
       ''
-        if [ -f $HOME/.env ]; then
+        if [ -f $HOME/env/env ]; then
           set -a
-          source $HOME/.env
+          source $HOME/env/env
           set +a
         fi
       ''
