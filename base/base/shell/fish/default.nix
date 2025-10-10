@@ -6,23 +6,23 @@ in {
     plugins = [
       {
         name = "tide";
-        src = pkgs.fishPlugins.tide.src;
+        inherit (pkgs.fishPlugins.tide) src;
       }
       {
         name = "autopair";
-        src = pkgs.fishPlugins.autopair.src;
+        inherit (pkgs.fishPlugins.autopair) src;
       }
       {
         name = "fzf-fish";
-        src = pkgs.fishPlugins.fzf-fish.src;
+        inherit (pkgs.fishPlugins.fzf-fish) src;
       }
       {
         name = "fifc";
-        src = pkgs.fishPlugins.fifc.src;
+        inherit (pkgs.fishPlugins.fifc) src;
       }
       {
         name = "colored-man-pages";
-        src = pkgs.fishPlugins.colored-man-pages.src;
+        inherit (pkgs.fishPlugins.colored-man-pages) src;
       }
     ];
     shellInit = builtins.readFile ./init.fish;

@@ -59,11 +59,13 @@
         inputs.home-manager.darwinModules.home-manager
 
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit inputs username;};
-          home-manager.users.${username} = {
-            imports = homeModulesBase ++ [./darwin];
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {inherit inputs username;};
+            users.${username} = {
+              imports = homeModulesBase ++ [./darwin];
+            };
           };
         }
       ];
@@ -77,7 +79,7 @@
           homeModulesBase
           ++ [
             ./linux
-            ({...}: {
+            (_: {
               home.username = username;
               home.homeDirectory = "/home/${username}";
             })
@@ -87,8 +89,10 @@
     };
 
     # Formatter used by `nix fmt` for both systems.
-    formatter.x86_64-darwin = (mkPkgs "x86_64-darwin").alejandra;
-    formatter.aarch64-darwin = (mkPkgs "aarch64-darwin").alejandra;
-    formatter.x86_64-linux = (mkPkgs "x86_64-linux").alejandra;
+    formatter = {
+      x86_64-darwin = (mkPkgs "x86_64-darwin").alejandra;
+      aarch64-darwin = (mkPkgs "aarch64-darwin").alejandra;
+      x86_64-linux = (mkPkgs "x86_64-linux").alejandra;
+    };
   };
 }

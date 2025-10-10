@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  isDarwin = pkgs.stdenv.isDarwin;
+  inherit (pkgs.stdenv) isDarwin;
   mkAgent = path: {
     enable = true;
     config = {

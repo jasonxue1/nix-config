@@ -1,4 +1,4 @@
-{...}: let
+_: let
   # Helpers for locked boolean preferences.
   lock-false = {
     Value = false;

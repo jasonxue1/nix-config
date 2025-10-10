@@ -4,10 +4,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    lldb_21
     rust-bin.stable.latest.complete
     cargo-binstall
-    # use mold in Linux
     pkg-config
     cargo-edit
     cargo-outdated

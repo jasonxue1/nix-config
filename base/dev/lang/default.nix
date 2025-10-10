@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./llvm.nix
     ./nix.nix
     ./lua.nix
     ./json.nix

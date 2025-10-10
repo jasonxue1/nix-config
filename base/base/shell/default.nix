@@ -26,6 +26,7 @@
       NIX_PATH = "nixpkgs=${pkgs.path}";
       NIX_USER_PROFILE_DIR = "/nix/var/nix/profiles/per-user/$USER";
       NIX_SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+      DYLD_LIBRARY_PATH = "${pkgs.llvmPackages.libcxx}/lib";
     };
 
     shellAliases = {

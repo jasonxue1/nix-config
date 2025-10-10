@@ -21,42 +21,22 @@
     };
   };
 
-  # Track configuration revision for `darwin-version`.
-  system.configurationRevision = self.rev or self.dirtyRev or null;
+  # Track configuration metadata for this host.
+  system = {
+    configurationRevision = self.rev or self.dirtyRev or null;
 
-  # Bump only after reading nix-darwin changelog.
-  system.stateVersion = 6;
+    # Bump only after reading nix-darwin changelog.
+    stateVersion = 6;
 
-  # Use default host platform from darwinSystem; no override here to avoid recursion.
+    primaryUser = username;
+  };
 
   # Ensure required overlays are present (shared list).
   nixpkgs.overlays = overlays;
   nixpkgs.config.allowUnfree = true;
 
   # Nix daemon settings and substituters.
-  nix = {
-    optimise.automatic = true;
-    settings = {
-      substituters = [
-        "https://mirrors.ustc.edu.cn/nix-channels/store/"
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store/"
-        "https://nix-community.cachix.org"
-      ];
-      trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-      trusted-substituters = [
-        "https://mirrors.ustc.edu.cn/nix-channels/store/"
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store/"
-      ];
-      fallback = true;
-      connect-timeout = 10;
-      http-connections = 4;
-      max-substitution-jobs = 4;
-      experimental-features = "nix-command flakes";
-      download-buffer-size = 1048576;
-    };
-  };
+  nix.enable = false;
 
   # Local user definition.
   users.users.${username}.home = "/Users/${username}";
@@ -66,6 +46,4 @@
     Defaults env_keep += "GITHUB_TOKEN"
     Defaults env_keep += "http_proxy https_proxy all_proxy"
   '';
-
-  system.primaryUser = username;
 }
