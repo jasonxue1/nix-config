@@ -5,9 +5,6 @@
   overlays,
   ...
 }: {
-  # System-level settings for this nix-darwin host.
-
-  # Core packages available system-wide.
   environment.systemPackages = with pkgs; [
     vim
     cachix
@@ -21,27 +18,31 @@
     };
   };
 
-  # Track configuration metadata for this host.
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;
 
-    # Bump only after reading nix-darwin changelog.
     stateVersion = 6;
 
     primaryUser = username;
   };
 
-  # Ensure required overlays are present (shared list).
   nixpkgs.overlays = overlays;
   nixpkgs.config.allowUnfree = true;
 
-  # Nix daemon settings and substituters.
   nix.enable = false;
-
-  # Local user definition.
+  determinate-nix.customSettings = {
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
+    substituters = [
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store/"
+      "https://nix-community.cachix.org"
+    ];
+  };
   users.users.${username}.home = "/Users/${username}";
 
-  # Preserve selected env vars for sudo sessions.
   security.sudo.extraConfig = ''
     Defaults env_keep += "GITHUB_TOKEN"
     Defaults env_keep += "http_proxy https_proxy all_proxy"

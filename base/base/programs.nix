@@ -21,6 +21,10 @@ _: {
     };
     man.enable = true;
     zoxide.enable = true;
+    nh = {
+      enable = true;
+      clean.enable = true;
+    };
   };
   home.sessionVariables = {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";

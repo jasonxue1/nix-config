@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # Git, SSH, and GitHub CLI configuration.
   xdg.configFile."git/config".onChange = ''
     rm -f ~/.gitconfig
   '';

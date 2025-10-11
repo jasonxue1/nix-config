@@ -35,6 +35,7 @@
       ls = "eza --icons=auto";
       ll = "eza -lg --icons=auto";
       y = "yazi";
+      sudo = "sudo -E";
     };
 
     sessionPath = [

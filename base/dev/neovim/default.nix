@@ -1,5 +1,4 @@
 {config, ...}: let
-  # Keep Neovim config in-repo and symlink it.
   configPath = "${config.home.homeDirectory}/nix-config/base/dev/neovim/nvim";
 in {
   programs.neovim = {

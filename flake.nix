@@ -1,9 +1,9 @@
 {
-  # Entrypoint flake for this nix-darwin + Home Manager setup.
   description = "nix-darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    determinate.url = "github:DeterminateSystems/determinate";
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,20 +28,16 @@
   };
 
   outputs = {self, ...} @ inputs: let
-    # Single user to support across all hosts
     username = "jason";
 
-    # Shared overlay list for every package set we instantiate
     overlays = import ./overlays {inherit inputs;};
 
-    # Create pkgs with consistent overlays and config for a given system
     mkPkgs = system:
       import inputs.nixpkgs {
         inherit system overlays;
         config = {allowUnfree = true;};
       };
 
-    # Common Home Manager modules shared by macOS and Linux
     homeModulesBase = [
       ./base
       inputs.catppuccin.homeModules.catppuccin
@@ -51,13 +47,12 @@
     linuxSystem = "x86_64-linux";
   in {
     darwinConfigurations."jason-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
-      # Explicit evaluation system for this host (detected as x86_64)
       system = "x86_64-darwin";
       specialArgs = {inherit self inputs username overlays;};
       modules = [
         ./modules/darwin/system.nix
         inputs.home-manager.darwinModules.home-manager
-
+        inputs.determinate.darwinModules.default
         {
           home-manager = {
             useGlobalPkgs = true;
@@ -71,7 +66,6 @@
       ];
     };
 
-    # Linux home-manager host (standalone, single machine)
     homeConfigurations = {
       "${username}@linux" = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = mkPkgs linuxSystem;
@@ -86,13 +80,6 @@
           ];
         extraSpecialArgs = {inherit inputs username;};
       };
-    };
-
-    # Formatter used by `nix fmt` for both systems.
-    formatter = {
-      x86_64-darwin = (mkPkgs "x86_64-darwin").alejandra;
-      aarch64-darwin = (mkPkgs "aarch64-darwin").alejandra;
-      x86_64-linux = (mkPkgs "x86_64-linux").alejandra;
     };
   };
 }

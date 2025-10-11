@@ -2,8 +2,7 @@
   home.packages = with pkgs; [
     uv
     ruff
-    #basedpyright
-    pyright
+    basedpyright
     python3Packages.debugpy
   ];
 }

@@ -10,6 +10,6 @@
     dbus
     imagemagick
     treefmt
-    jason.clash-verge-rev
+    nix-info
   ];
 }
