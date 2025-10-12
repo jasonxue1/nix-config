@@ -8,5 +8,7 @@
     nixpkgs-hammering
     nixpkgs-review
     nix-update
+    nix-info
+    nix-output-monitor
   ];
 }

@@ -10,6 +10,5 @@
     dbus
     imagemagick
     treefmt
-    nix-info
   ];
 }

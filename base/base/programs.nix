@@ -25,6 +25,10 @@ _: {
       enable = true;
       clean.enable = true;
     };
+    nix-your-shell = {
+      enable = true;
+      nix-output-monitor.enable = true;
+    };
   };
   home.sessionVariables = {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
