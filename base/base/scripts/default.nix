@@ -2,6 +2,7 @@
   names = [
     "auto_sleep"
     "focus_app"
+    "nix_docker_build"
   ];
   mk = name:
     pkgs.writeShellApplication {

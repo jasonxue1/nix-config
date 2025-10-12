@@ -4,5 +4,6 @@
     ./lang
     ./kitty.nix
     ./git.nix
+    ./docker.nix
   ];
 }
