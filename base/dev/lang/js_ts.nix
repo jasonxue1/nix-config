@@ -3,7 +3,7 @@
     pnpm
     nodejs
     vscode-langservers-extracted
-    #vscode-js-debug
+    vscode-js-debug
     vtsls
   ];
 }

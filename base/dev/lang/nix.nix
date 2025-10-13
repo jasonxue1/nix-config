@@ -10,5 +10,6 @@
     nix-update
     nix-info
     nix-output-monitor
+    dix
   ];
 }
