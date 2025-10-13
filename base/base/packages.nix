@@ -10,5 +10,6 @@
     dbus
     imagemagick
     treefmt
+    ruffle
   ];
 }
