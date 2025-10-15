@@ -31,6 +31,9 @@
       url = "github:jasonxue1/jason-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-olde = {
+      url = "github:trofi/nix-olde";
+    };
   };
 
   outputs = {self, ...} @ inputs: let

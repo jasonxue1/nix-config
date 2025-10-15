@@ -11,5 +11,6 @@
     imagemagick
     treefmt
     ruffle
+    nix-olde
   ];
 }
