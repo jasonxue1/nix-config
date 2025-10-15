@@ -39,6 +39,7 @@
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store/"
       "https://nix-community.cachix.org"
+      "https://cache.nixos.org"
     ];
   };
   users.users.${username}.home = "/Users/${username}";
