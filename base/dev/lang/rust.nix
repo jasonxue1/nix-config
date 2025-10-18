@@ -1,11 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     rust-bin.stable.latest.complete
-    cargo-binstall
     pkg-config
     cargo-edit
     cargo-outdated
@@ -26,14 +21,8 @@
     cargo-release
     cargo-benchcmp
     cargo-flamegraph
-    wasm-pack
-    wasm-bindgen-cli
     binaryen
     wabt
     wasmtime
-  ];
-
-  home.sessionPath = [
-    "${config.home.homeDirectory}/.cargo/bin"
   ];
 }
