@@ -13,6 +13,7 @@
     ./yaml.nix
     ./just.nix
     ./java.nix
+    ./typst.nix
     ./fish.nix
     ./rust.nix
     ./pdf.nix
