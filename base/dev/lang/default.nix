@@ -12,6 +12,7 @@
     ./latex.nix
     ./yaml.nix
     ./just.nix
+    ./java.nix
     ./fish.nix
     ./rust.nix
     ./pdf.nix

@@ -16,6 +16,7 @@ return {
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.just" },
   { import = "astrocommunity.pack.fish" },
+  { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.lsp.actions-preview-nvim" },
