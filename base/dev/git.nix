@@ -55,20 +55,16 @@
       enable = true;
       lfs.enable = true;
 
-      userName = "jasonxue";
-      userEmail = "jason@xuechunxi.com";
+      settings = {
+        user = {
+          name = "jasonxue";
+          email = "jason@xuechunxi.com";
+        };
 
-      signing = {
-        key = "E480A836F6DD2441";
-        signByDefault = true;
-      };
-
-      extraConfig = {
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
         pull.rebase = true;
         log.date = "iso";
-
         url = {
           "git@github.com:" = {
             insteadOf = [
@@ -77,7 +73,6 @@
             ];
           };
         };
-
         gpg.program = "${pkgs.gnupg}/bin/gpg";
         gpg.format = "openpgp";
         commit.gpgsign = true;
@@ -85,13 +80,18 @@
         user.useConfigOnly = true;
       };
 
-      delta = {
-        enable = true;
-        options = {
-          diff-so-fancy = true;
-          line-numbers = true;
-          true-colors = "always";
-        };
+      signing = {
+        key = "E480A836F6DD2441";
+        signByDefault = true;
+      };
+    };
+
+    delta = {
+      enable = true;
+      options = {
+        diff-so-fancy = true;
+        line-numbers = true;
+        true-colors = "always";
       };
     };
 
