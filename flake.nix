@@ -5,7 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     determinate = {
       url = "github:DeterminateSystems/determinate";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nix.inputs.nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
