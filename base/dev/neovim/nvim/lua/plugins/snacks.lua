@@ -3,10 +3,20 @@
 return {
   "folke/snacks.nvim",
   optional = true,
-  ---@type snacks.Config
-  opts = {
-    image = {
-      doc = { enabled = true },
-    },
-  },
+  opts = function(_, opts)
+    ---@type snacks.config
+    opts = {
+      image = {
+        doc = { enabled = true },
+      },
+      dashboard = {
+        preset = {
+          keys = require("astrocore").list_insert_unique(
+            opts.dashboard.preset.keys,
+            { { icon = " ", key = "q", desc = "Quit", action = ":qa" } }
+          ),
+        },
+      },
+    }
+  end,
 }
