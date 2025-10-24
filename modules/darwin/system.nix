@@ -1,14 +1,9 @@
 {
-  pkgs,
   self,
   username,
   overlays,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    vim
-    cachix
-  ];
   programs.fish = {
     enable = true;
     vendor = {

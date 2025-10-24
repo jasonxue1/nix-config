@@ -12,5 +12,6 @@
     treefmt
     ruffle
     jason.nix-olde
+    cachix
   ];
 }

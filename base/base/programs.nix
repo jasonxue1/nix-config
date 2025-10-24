@@ -16,19 +16,8 @@ _: {
       nix-direnv.enable = true;
     };
     codex.enable = true;
-    zathura = {
-      enable = true;
-    };
     man.enable = true;
     zoxide.enable = true;
-    nh = {
-      enable = true;
-      clean.enable = true;
-    };
-    nix-your-shell = {
-      enable = true;
-      nix-output-monitor.enable = true;
-    };
   };
   home.sessionVariables = {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";

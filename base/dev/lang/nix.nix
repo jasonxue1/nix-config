@@ -12,4 +12,14 @@
     nix-output-monitor
     dix
   ];
+  programs = {
+    nh = {
+      enable = true;
+      clean.enable = true;
+    };
+    nix-your-shell = {
+      enable = true;
+      nix-output-monitor.enable = true;
+    };
+  };
 }

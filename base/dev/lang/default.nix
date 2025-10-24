@@ -1,4 +1,4 @@
-{...}: {
+_: {
   imports = [
     ./llvm.nix
     ./nix.nix
