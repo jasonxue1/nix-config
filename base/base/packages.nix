@@ -13,5 +13,7 @@
     ruffle
     jason.nix-olde
     cachix
+    stats
+    p7zip
   ];
 }
