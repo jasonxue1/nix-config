@@ -1,6 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    rust-bin.stable.latest.complete
+    rust-analyzer-nightly
+    (fenix.complete.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
     pkg-config
     cargo-edit
     cargo-outdated
