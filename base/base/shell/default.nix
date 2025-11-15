@@ -46,6 +46,7 @@
       "/run/current-system/sw/bin"
       "/nix/var/profiles/default/bin"
       "/usr/local/bin"
+      "${config.home.homeDirectory}/.dotnet"
     ];
   };
 }

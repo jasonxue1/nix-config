@@ -15,5 +15,6 @@
     cachix
     stats
     p7zip
+    unrar
   ];
 }
